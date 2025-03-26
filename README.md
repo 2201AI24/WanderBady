@@ -47,21 +47,20 @@ Open `index.html` in your browser to use the app.
 
 ---
 
-## 📁 Project Structure
-```
 📂 WanderBuddy/
  ├── 📄 README.md  # Project Overview & Setup Guide
  ├── 📄 LICENSE  # Open-source license
  ├── 📄 TECHNICAL_DOCUMENTATION.md  # Detailed architecture & API docs
  ├── 📂 static/  # CSS & JavaScript files
  │   ├── style.css
+ │   ├── styles.css  # Additional stylesheet
  │   ├── script.js
  ├── 📂 templates/  # HTML Pages
  │   ├── index.html
  │   ├── result.html
  ├── 📄 app.py  # Flask backend
  ├── 📄 requirements.txt  # Dependencies
-```
+
 
 ---
 
