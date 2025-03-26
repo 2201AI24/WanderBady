@@ -85,8 +85,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-
-
     // 🟢 Budget, Group, and Activity Selection
     function handleSelection(buttons) {
         buttons.forEach(btn => {
@@ -98,11 +96,19 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
     }
+
+    const budgetBtns = document.querySelectorAll(".budget-btn");
+    const groupBtns = document.querySelectorAll(".group-btn");
+    const activityBtns = document.querySelectorAll(".activity-btn");
+
     handleSelection(budgetBtns);
     handleSelection(groupBtns);
     handleSelection(activityBtns);
 
     // 🟢 Smooth scrolling to trip planner
+    const searchBtn = document.getElementById("search-btn");
+    const searchBar = document.getElementById("search-bar");
+
     searchBtn?.addEventListener("click", function() {
         const destination = searchBar.value.trim();
         if (destination) {
@@ -114,6 +120,8 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // 🟢 Redirect to result.html on form submission
+    const generatePlanBtn = document.getElementById("generate-plan-btn");
+
     generatePlanBtn?.addEventListener("click", function() {
         const destination = localStorage.getItem("destination") || "";
         const date = document.getElementById("date")?.value;
