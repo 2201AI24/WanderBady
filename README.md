@@ -52,8 +52,8 @@ Open `index.html` in your browser to use the app.
  ├── 📄 LICENSE  # Open-source license
  ├── 📄 TECHNICAL_DOCUMENTATION.md  # Detailed architecture & API docs
  ├── 📂 static/  # CSS & JavaScript files
- │   ├── style.css
- │   ├── styles.css  # Additional stylesheet
+ │   ├── home.css
+ │   ├── results.css  # Additional stylesheet
  │   ├── script.js
  ├── 📂 templates/  # HTML Pages
  │   ├── index.html
