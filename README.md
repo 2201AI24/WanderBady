@@ -53,7 +53,7 @@ Open `index.html` in your browser to use the app.
  ├── 📄 TECHNICAL_DOCUMENTATION.md  # Detailed architecture & API docs
  ├── 📂 static/  # CSS & JavaScript files
  │   ├── home.css
- │   ├── results.css  # Additional stylesheet
+ │   ├── result.css  # Additional stylesheet
  │   ├── script.js
  ├── 📂 templates/  # HTML Pages
  │   ├── index.html
