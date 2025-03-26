@@ -49,7 +49,7 @@ Open `index.html` in your browser to use the app.
 
 ## 📁 Project Structure
 ```
-📂 AI-Smart-Travel-Assistant/
+📂 WanderBuddy/
  ├── 📄 README.md  # Project Overview & Setup Guide
  ├── 📄 LICENSE  # Open-source license
  ├── 📄 TECHNICAL_DOCUMENTATION.md  # Detailed architecture & API docs
