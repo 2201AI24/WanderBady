@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Smart Travel Assistant</title>
+    <link rel="stylesheet" href="/static/home.css">
+    <script src="/static/script.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">🌍 SmartTravel</div>
+        <nav>
+            <ul>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#planner">Trip Planner</a></li>
+                <li><a href="#explore">Explore</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="login-btn">Login</button>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Your AI-Powered Travel Guide</h1>
+            <p>Plan, explore, and experience the world with intelligent recommendations.</p>
+            <div class="search-container">
+                <input type="text" id="search-bar" placeholder="Enter Destination...">
+                <button id="search-btn">Find Trips</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trip Planner Section -->
+    <section id="planner" class="planner">
+        <h2 class="planner-title">Plan Your Trip</h2>
+        <p class="planner-description">Provide some basic details, and let AI create a customized itinerary just for you.</p>
+        <form id="trip-form">
+            <label for="date">When are you planning to travel?</label>
+            <input type="date" id="date" required>
+
+            <label for="days">How many days are you planning to travel?</label>
+            <input type="number" id="days" min="1" required>
+
+            <label>What is your budget?</label>
+            <div class="budget-options">
+                <button type="button" class="budget-btn" data-value="low">Low (₹0 - ₹5,000)</button>
+                <button type="button" class="budget-btn" data-value="medium">Medium (₹5000 - ₹10,000)</button>
+                <button type="button" class="budget-btn" data-value="high">High (₹10,000+)</button>
+            </div>
+
+            <label>Who are you traveling with?</label>
+            <div class="group-options">
+                <button type="button" class="group-btn" data-value="solo">Solo</button>
+                <button type="button" class="group-btn" data-value="couple">Couple</button>
+                <button type="button" class="group-btn" data-value="family">Family</button>
+                <button type="button" class="group-btn" data-value="friends">Friends</button>
+            </div>
+
+            <label>Which activities are you interested in?</label>
+            <div class="activity-options">
+                <button type="button" class="activity-btn" data-value="beaches">Beaches</button>
+                <button type="button" class="activity-btn" data-value="city">City Sightseeing</button>
+                <button type="button" class="activity-btn" data-value="hiking">Outdoor Adventures</button>
+                <button type="button" class="activity-btn" data-value="festival">Festivals/Events</button>
+                <button type="button" class="activity-btn" data-value="food">Food Exploration</button>
+                <button type="button" class="activity-btn" data-value="shopping">Shopping</button>
+                <button type="button" class="activity-btn" data-value="spa">Spa Wellness</button>
+            </div>
+
+            <button type="button" id="generate-plan-btn" class="generate-btn">Generate Plan</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 AI Smart Travel Assistant. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById("search-btn").addEventListener("click", function() {
+            const destination = document.getElementById("search-bar").value.trim();
+            if (destination) {
+                localStorage.setItem("destination", destination);
+                document.getElementById("planner").scrollIntoView({ behavior: 'smooth' });
+            } else {
+                alert("Please enter a destination.");
+            }
+        });
+    </script>
+</body>
+</html>

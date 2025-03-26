@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Travel Assistant - Results</title>
+    <link rel="stylesheet" href="/static/result.css">
+    <script defer src="/static/script.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">🌍 SmartTravel</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#planner">Trip Plan</a></li>
+                <li><a href="#chatbot">AI Guide</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="login-btn">Login</button>
+    </header>
+
+    <!-- Split Screen Layout -->
+    <section id="result-page">
+        <div class="left-panel">
+            <h2>Your AI-Generated Travel Itinerary</h2>
+            <div id="itinerary">Loading itinerary...</div>
+            <h2>AI Travel Insights</h2>
+            <div id="travel-insights">Fetching insights...</div>
+        </div>
+
+        <div class="right-panel">
+            <h2>Ask Our AI Travel Guide</h2>
+            <div id="chat-container">
+                <div id="chat-window"></div>
+                <div class="chat-input-container">
+                    <input type="text" id="chat-input" placeholder="Type your question...">
+                    <button id="send-btn">Send</button>
+                    <button id="voice-btn">🎤</button>
+                </div>
+                <div class="chat-suggestions">
+                    <button class="suggestion-btn" data-question="Best places to visit in Paris?">Best places to visit in Paris?</button>
+                    <button class="suggestion-btn" data-question="Budget travel tips?">Budget travel tips?</button>
+                    <button class="suggestion-btn" data-question="Top 5 adventure destinations?">Top 5 adventure destinations?</button>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 AI Smart Travel Assistant. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const itineraryDiv = document.getElementById("itinerary");
+            const insightsDiv = document.getElementById("travel-insights");
+            const storedItinerary = localStorage.getItem("itinerary");
+            const destination = localStorage.getItem("destination");
+
+            // Load Itinerary
+            itineraryDiv.innerHTML = storedItinerary ? `<strong>Trip Itinerary:</strong><br>${storedItinerary}` : "No itinerary found.";
+            
+            // Fetch AI Travel Insights
+            if (destination) {
+                fetch("http://127.0.0.1:5000/travel-insights", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ destination })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.travel_info) {
+                        const insights = data.travel_info.split('\n').map(line => `<li>${line}</li>`).join('');
+                        insightsDiv.innerHTML = `<strong>AI Insights for ${destination}:</strong><ul>${insights}</ul>`;
+                    } else {
+                        insightsDiv.innerHTML = "No insights available.";
+                    }
+                })
+                .catch(error => {
+                    insightsDiv.innerHTML = "Error fetching travel insights.";
+                });
+            }
+        });
+    </script>
+</body>
+</html>
